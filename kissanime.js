@@ -79,11 +79,11 @@ function get_short_url(long_url, login, api_key)
         }
     ); 
 }
+var saveto = document.querySelector("#rightside .rightBox");
+saveto.createElement("div");
+saveto.setAttribute("id", "dl-links");
 
 function save_it(short_url)
 {
-	var saveto = document.querySelector("#rightside .rightBox ");
-	saveto.createElement("div").;
-	saveto.setAttribute("id", "dl-links");
 	saveto.innerHTML = saveto.innerHTML + short_url;
 }
