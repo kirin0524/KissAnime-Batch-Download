@@ -8,6 +8,7 @@ $.getScript("http://kissanime.com/Scripts/asp.js");
 var login = "vergo777";
 var api_key = "R_6a13f014b38f4f80a31cf7d80a7c18c7";
 var long_url; 
+var short_url;
 
 var startEpisode; 
 do {
@@ -28,7 +29,7 @@ do {
 		break;
 	}
 } while(true); 
-var videoQuality = prompt("Enter video quality you want to download. Example - '960x720.mp4' (without the quotes)"); 
+var videoQuality = prompt("Enter video quality you want to download. Example - '1280x720.mp4' (without the quotes)"); 
 
 var i; 
 for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEpisode); i--) {
@@ -73,7 +74,16 @@ function get_short_url(long_url, login, api_key)
         },
         function(response)
         {
-            console.log(response.data.url);
+        	console.log(response.data.url);
+        	save_it(response.data.url);
         }
     ); 
+}
+
+function save_it(short_url)
+{
+	var saveto = document.querySelector("#rightside .rightBox ");
+	saveto.createElement("div").;
+	saveto.setAttribute("id", "dl-links");
+	saveto.innerHTML = saveto.innerHTML + short_url;
 }
