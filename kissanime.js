@@ -100,7 +100,7 @@ title.innerHTML = "Generated Download Links";
 box.appendChild(title);
 
 content.setAttribute("class", "barContent");
-content.setAttribute("id", "d-links")''
+content.setAttribute("id", "d-links");
 box.appendChild(content);
 
 
