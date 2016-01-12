@@ -79,25 +79,31 @@ function get_short_url(long_url, login, api_key)
         }
     ); 
 }
-var newbox = document.querySelector("#rightside");
-newbox.createElement("div");
-newbox.setAttribute("class", "rightBox");
 
-var newtitle = newbox.createElement("div");
-newtitle.setAttribute("class", "barTitle");
-newtitle.innerHTML = "Generated Download Links";
-
-var newcontent = newbox.createElement("div");
-newcontent.setAttribute("class", "barContent");
-
-var newclear = newbox.createElement("div");
-newclear.setAttribute("class", "clear2");
-
-var newelement = newcontent.createElement("div");
-
+var content = document.createElement("div");
+var hyper = document.createElement("a");
 
 function save_it(short_url)
 {
-	newelement.innerHTML = short_url;
-	newcontent.appendChild(newelement);
+	hyper.href = short_url;
+	content.appendChild(hyper);
 }
+
+var element = document.getElementById("rightside");
+
+var box = document.createElement("div");
+box.setAttribute("class", "rightBox");
+
+var title = document.createElement("div");
+title.setAttribute("class", "barTitle");
+title.innerHTML = "Generated Download Links";
+box.appendChild(title);
+
+content.setAttribute("class", "barContent");
+content.setAttribute("id", "d-links")''
+box.appendChild(content);
+
+
+var clear = document.createElement("div");
+clear.setAttribute("class", "clear2");
+box.appendChild(clear);
