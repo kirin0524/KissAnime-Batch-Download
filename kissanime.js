@@ -79,11 +79,18 @@ function get_short_url(long_url, login, api_key)
         }
     ); 
 }
-var saveto = document.querySelector("#rightside .rightBox");
-saveto.createElement("div");
-saveto.setAttribute("id", "dl-links");
+var rightbox = document.querySelector("#rightside");
+rightbox.createElement("div");
+rightbox.setAttribute("class", "rightBox");
+var barTitle = rightbox.createElement("div");
+barTitle.setAttribute("class", "barTitle");
+barTitle.innerHTML = "Generated Download Links";
+var barContent = rightbox.createElement("div");
+barContent.setAttribute("class", "barContent");
+var clear2 = rightbox.createElement("div");
+clear2.setAttribute("class", "clear2"); 
 
 function save_it(short_url)
 {
-	saveto.innerHTML = saveto.innerHTML + short_url;
+	barContent.innerHTML = short_url + "\n";
 }
