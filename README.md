@@ -1,7 +1,7 @@
 How to use the script 
 ======================
 
-$.getScript("https://rawgit.com/Vergo777/Kissanime-LinkDownload/master/kissanime.js")
+$.getScript("https://rawgit.com/Guthix1991/Kissanime-LinkDownload/master/kissanime.js")
 
 Description and usage instructions
 ======================
@@ -12,38 +12,36 @@ This app avoids that by basically allowing you to simply go to the main anime pa
 
 The detailed steps to use this script are as follows - 
 
-##1. Login to Kissanime using your account (make one if needed) 
+##1. Login to KissAnime/KissCartoon/KissAsian using your account.
 
-##2. Go to the main page of the anime you want to download (e.g. Wake up Girls) 
+##2. Go to the episode list of the series that you want to download.
 
 ![Screenshot](https://a.pomf.se/udpztv.png)
 
-##3. Press F12 and click on the console tab 
+##3. Press F12 and Click on the console ta.b 
 
 ![Screenshot](https://a.pomf.se/sndhdw.png)
 
-##4. Paste the following into the console window and press enter 
+##4. Paste the script into the console window, and then press enter. 
 
-$.getScript("https://rawgit.com/Vergo777/Kissanime-LinkDownload/master/kissanime.js")
+$.getScript("https://rawgit.com/Guthix1991/Kissanime-LinkDownload/master/kissanime.js")
 
 ![Screenshot](https://a.pomf.se/svfhlk.png)
 
-##5. Enter the episode number from which you'd like to start generating download links (e.g. ep 3)  
+##5. Enter the episode number from which you'd like to start generating download links.
 
 ![Screenshot](https://a.pomf.se/rsuhqo.png)
 
-##6. Enter the final episode number till which you'd like to generate download links (e.g. ep 9)  
+##6. Enter the final episode number till which you'd like to generate download links.
 
 ![Screenshot](https://a.pomf.se/iefobt.png)
 
-##7. Enter the video quality you'd like to get. This can be found on any episode page. (e.g. 1280x720.mp4)  
+##7. Enter the video quality you'd like to get, this can be found on any episode page. (1280x720.mp4)  
 
 ![Screenshot](https://a.pomf.se/hqvfvo.png)
 
 ![Screenshot](https://a.pomf.se/bdjswc.png)
 
-##8. Wait till all links are generated, and then copy them from the console window! 
+##8. Wait for the new tab to appear.
 
-![Screenshot](https://a.pomf.se/kpejyt.png)
-
-Once you copy these links you can use something like Internet Download Manager to queue them all up at once and start batch downloading
+##9. Enjoy downloading them all in one page.
