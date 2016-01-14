@@ -63,7 +63,7 @@ console.log('Starting episode: ' + startEpisode)
 
 var endEpisode; 
 do {
-	endEpisode = prompt("From episode" + startEpisode + "\nEnter the episode number that you want to end at :");
+	endEpisode = prompt("Starting from episode " + startEpisode + "\nEnter the episode number that you want to end at :");
 	if (endEpisode === null) {
 		throw new Error("Script cancelled by user!");
 	}
@@ -86,7 +86,7 @@ console.log('Selected quality: ' + videoQuality);
 var i;
 var long_url;
 var newLinks = '';
-var title = $("title").text();
+var title = $(".bigChar").text();
 var c = startEpisode;
 for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEpisode); i--) {
 	jQuery.ajax({
@@ -116,7 +116,7 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 			long_url = downloadQualityOptions[0].attr('href');
 		}
 		console.log('Completed: ' + c + '/' + (endEpisode - startEpisode + 1));
-		newLinks = newLinks + '<a href="' + long_url + '" download="' + title + " " + c + '">Episode ' + c + ' (' + videoQuality + ')</a><br></br>\n';
+		newLinks = newLinks + '<a href="' + long_url + '" download="' + title + ' - ' + c + '">Episode ' + c + ' (' + videoQuality + ')</a><br></br>\n';
 		c++
         },
         async:   false, 
@@ -125,8 +125,8 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 }
 
 var newPageText = 'Use an addon like DownThemAll! to download the episodes on this page at once. '
-newPageText += 'To download them individually, right click the link and choose Save As. <br></br>'
-newPageText += 'NOTE: If watching episodes from this list, open them in a new tab as you will not be able to come back.<br></br>'
+newPageText += 'To download them individually, right click the link and choose Save As. <br>'
+newPageText += 'NOTE: If watching episodes from this list, open them in a new tab as you will not be able to come back.<br><h1>'+title+' - Download Page</h1>'
 newPageText += newLinks
 
 var newPage = window.open();
