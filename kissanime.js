@@ -48,7 +48,7 @@ $.getScript(URL + "/Scripts/asp.js");
 
 var startEpisode; 
 do {
-	startEpisode = prompt("Enter episode number you want to start from:");
+	startEpisode = prompt("There are " + episodeLinks.length + "found episodes. \n Enter episode number you want to start from:");
 	if (startEpisode === null) {
 		throw new Error("Script cancelled by user!");
 	}
