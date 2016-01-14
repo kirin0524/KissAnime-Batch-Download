@@ -131,7 +131,7 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
         async:   false, 
 	script:  true
     });
-}
+
 
 var newPageText = 'Use an addon like DownThemAll! to download the episodes on this page at once. '
 newPageText += 'To download them individually, right click the link and choose Save As. <br>'
