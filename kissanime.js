@@ -116,7 +116,7 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 		}
 		
 		console.log('Completed: ' + c + '/' + (endEpisode - startEpisode + 1));
-		newLinks = newLinks + '<a href="' + get_url + '" download="' + title + ' - ' + c + '">Episode ' + c + ' (' + videoQuality + ')</a><br></br>\n';
+		newLinks = newLinks + '<a href="' + long_url + '" download="' + title + ' - ' + c + '">Episode ' + c + ' (' + videoQuality + ')</a><br></br>\n';
 		c++
 		console.log(decodedUrl);
         },
