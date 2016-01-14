@@ -48,7 +48,7 @@ $.getScript(URL + "/Scripts/asp.js");
 
 var startEpisode; 
 do {
-	startEpisode = prompt("There are " + episodeLinks.length + " episodes found on this site. \nEnter the episode number that you want to start from:");
+	startEpisode = prompt("There are " + episodeLinks.length + " episodes found.\nEnter the episode number that you want to start from:");
 	if (startEpisode === null) {
 		throw new Error("Script cancelled by user!");
 	}
@@ -63,7 +63,7 @@ console.log('Starting episode: ' + startEpisode)
 
 var endEpisode; 
 do {
-	endEpisode = prompt("From episode" + startEpisode + "\nEnter episode number you want to end at :");
+	endEpisode = prompt("From episode" + startEpisode + "\nEnter the episode number that you want to end at :");
 	if (endEpisode === null) {
 		throw new Error("Script cancelled by user!");
 	}
@@ -76,7 +76,7 @@ do {
 } while(true); 
 console.log('Ending episode: ' + endEpisode)
 
-var videoQuality = prompt("Enter video quality you want to download. Leave blank for default (1280x720.mp4)"); 
+var videoQuality = prompt("Enter the video quality that you want to download. Leave blank for default (1280x720.mp4)"); 
 //set preferred quality (will choose the best available if not an option)
 if (videoQuality === null || videoQuality == '') {
 	videoQuality = '1280x720.mp4';
@@ -86,6 +86,7 @@ console.log('Selected quality: ' + videoQuality);
 var i;
 var long_url;
 var newLinks = '';
+var title = $("title").text();
 var c = startEpisode;
 for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEpisode); i--) {
 	jQuery.ajax({
@@ -96,7 +97,7 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 		var stringEnd = result.search("document.write"); 
 		var javascriptToExecute = result.substring(stringStart, stringEnd);
 		eval(javascriptToExecute);
-		
+		$("body").css("background:#1A1A1A");
 		$("body").append('<div id="episode' + i + '" style="display: none;"></div>')
 		$('#episode' + i).append(wra); 
 		
@@ -115,7 +116,7 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 			long_url = downloadQualityOptions[0].attr('href');
 		}
 		console.log('Completed: ' + c + '/' + (endEpisode - startEpisode + 1));
-		newLinks = newLinks + '<a href="' + long_url + '">Episode ' + c + ' (' + videoQuality + ')</a><br></br>\n';
+		newLinks = newLinks + '<a href="' + long_url + '" download="' + title + " " + c + '">Episode ' + c + ' (' + videoQuality + ')</a><br></br>\n';
 		c++
         },
         async:   false, 
