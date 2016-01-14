@@ -97,7 +97,6 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 		var stringEnd = result.search("document.write"); 
 		var javascriptToExecute = result.substring(stringStart, stringEnd);
 		eval(javascriptToExecute);
-		$("body").css("background:#1A1A1A");
 		$("body").append('<div id="episode' + i + '" style="display: none;"></div>')
 		$('#episode' + i).append(wra); 
 		
@@ -130,4 +129,5 @@ newPageText += 'NOTE: If watching episodes from this list, open them in a new ta
 newPageText += newLinks
 
 var newPage = window.open();
+newPage.document.body.css("background:#1A1A1A");
 newPage.document.body.innerHTML = newPageText
