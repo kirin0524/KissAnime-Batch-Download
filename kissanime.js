@@ -123,16 +123,14 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 				return a.href;
 			}
 		});
-        });
 		console.log('Completed: ' + c + '/' + (endEpisode - startEpisode + 1));
 		newLinks = newLinks + '<a href="' + absolute_url + '" download="' + title + ' - ' + c + '">Episode ' + c + ' (' + videoQuality + ')</a><br></br>\n';
 		c++
-		
         },
         async:   false, 
 	script:  true
     });
-
+}
 
 var newPageText = 'Use an addon like DownThemAll! to download the episodes on this page at once. '
 newPageText += 'To download them individually, right click the link and choose Save As. <br>'
