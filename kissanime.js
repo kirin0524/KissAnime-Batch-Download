@@ -129,6 +129,6 @@ newPageText += 'NOTE: If watching episodes from this list, open them in a new ta
 newPageText += newLinks
 
 var newPage = window.open();
-newPage.document.body.css("background:#1A1A1A");
+newPage.document.body.attr("style", "background:#1A1A1A");
 newPage.document.title.innerHTML = title + ' Download';
 newPage.document.body.innerHTML = newPageText;
