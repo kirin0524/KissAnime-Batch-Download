@@ -131,4 +131,4 @@ newPageText += newLinks
 var newPage = window.open();
 newPage.document.body.attr("style", "background:#1A1A1A");
 newPage.document.title.innerHTML = title + ' Download';
-newPage.document.body.innerHTML = newPageText;
+newPage.document.body.innerHTML = newPageText
