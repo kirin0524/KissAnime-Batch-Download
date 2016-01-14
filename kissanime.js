@@ -85,6 +85,7 @@ console.log('Selected quality: ' + videoQuality);
 
 var i;
 var long_url;
+var get_url;
 var newLinks = '';
 var title = $(".bigChar").text();
 var c = startEpisode;
@@ -114,8 +115,13 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 			videoQuality = downloadQualityOptions[0].html();
 			long_url = downloadQualityOptions[0].attr('href');
 		}
+		
+		$.get( long_url, function( data ) {
+			get_url = data;
+			
+		});
 		console.log('Completed: ' + c + '/' + (endEpisode - startEpisode + 1));
-		newLinks = newLinks + '<a href="' + long_url + '" download="' + title + ' - ' + c + '">Episode ' + c + ' (' + videoQuality + ')</a><br></br>\n';
+		newLinks = newLinks + '<a href="' + get_url + '" download="' + title + ' - ' + c + '">Episode ' + c + ' (' + videoQuality + ')</a><br></br>\n';
 		c++
         },
         async:   false, 
