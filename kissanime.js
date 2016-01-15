@@ -117,11 +117,25 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 		}
 		
 		$.ajax({
-			url: long_url,
-
-			success:function(result,status,xhr){
-			absolute_url = xhr.getResponseHeader('Location'));<---NULL
-			}
+    			type: 'POST',
+    			url: 'A.html',
+    			data: '....',
+    			statusCode: {
+        			302: function() {
+            				alert("302"); // this is never called
+        			},
+        			200: function() {
+            				alert("200");
+        			},
+    				},
+				success: function (data, textstatus) {
+        				absolute_url = xhrreq.getResponseHeader("X-MYAPP-PATH");
+    				},
+    				error: function (data) {
+    				},
+    				complete: function (jqXHR, textstatus) {
+        				absolute_url = xhrreq.getResponseHeader("X-MYAPP-PATH");
+    				},
 		});
 		console.log('Completed: ' + c + '/' + (endEpisode - startEpisode + 1));
 		newLinks = newLinks + '<a href="' + absolute_url + '" download="' + title + ' - ' + c + '">Episode ' + c + ' (' + videoQuality + ')</a><br></br>\n';
