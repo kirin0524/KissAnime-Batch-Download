@@ -128,12 +128,12 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
             				alert("200");
         			},
     				},
-				success: function (data, textstatus) {
+				success: function (data, textstatus, xhrreq) {
         				absolute_url = xhrreq.getResponseHeader("X-MYAPP-PATH");
     				},
     				error: function (data) {
     				},
-    				complete: function (jqXHR, textstatus) {
+    				complete: function (jqXHR, textstatus, xhrreq) {
         				absolute_url = xhrreq.getResponseHeader("X-MYAPP-PATH");
     				},
 		});
