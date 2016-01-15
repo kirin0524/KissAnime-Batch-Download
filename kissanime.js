@@ -115,12 +115,12 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 			videoQuality = downloadQualityOptions[0].html();
 			long_url = downloadQualityOptions[0].attr('href');
 		}
-		absolute_url = (function(){
-			var a;
-			return function(url){
-				if(!a) a = document.createElement('a');
-				a.href=long_url;
-				return a.href;
+		
+		$.ajax({
+			url: long_url,
+
+			success:function(result,status,xhr){
+			absolute_url = xhr.getResponseHeader('Location'));<---NULL
 			}
 		});
 		console.log('Completed: ' + c + '/' + (endEpisode - startEpisode + 1));
