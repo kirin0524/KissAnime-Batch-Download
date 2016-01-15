@@ -118,7 +118,7 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 		
 		$.ajax({
     			type: 'POST',
-    			url: 'A.html',
+    			url: long_url,
     			data: '....',
     			statusCode: {
         			302: function() {
