@@ -147,10 +147,9 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 		}
 		get_url = $.ajax({
 			type: "GET",
-			url: long_url,
+			url: long_url.replace("http://", "https://"),
 		});
 		response_url = get_url.getResponseHeader('Location');
-		
 		
 		console.log('Completed: ' + c + '/' + (endEpisode - startEpisode + 1));
 		newLinks = newLinks + '<a href="' + response_url + '" download="[KissAnime] '+title+' - '+c+'">Episode ' + c + ' (' + videoQuality + ')</a><br></br>\n';
@@ -166,5 +165,6 @@ newPageText += 'To download them individually, right click the link and choose S
 newPageText += 'NOTE: If watching episodes from this list, open them in a new tab as you will not be able to come back.<br><h1>'+title+' - Download Page</h1>'
 newPageText += newLinks
 
-var newPage = window.open();
-newPage.document.body.innerHTML = newPageText
+var newPage = window.open(title, '', 'left=20,top=20,width=400,height=300,toolbar=0,resizable=1');
+newPage.document.body.innerHTML = newPageText;
+newPage.focus();
