@@ -145,7 +145,7 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 			videoQuality = downloadQualityOptions[0].html();
 			long_url = downloadQualityOptions[0].attr('href');
 		}
-		get_url = $.ajac({
+		get_url = $.ajax({
 			type: "GET",
 			url: long_url,
 		});
