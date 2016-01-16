@@ -1,16 +1,18 @@
-How to use the script 
+Get Script code
 ======================
 
 $.getScript("https://rawgit.com/Guthix1991/KissAnime-Batch-Download/master/script.js")
 
-Description and usage instructions
+(If popup blocker shows up, please allow the website and try again)
+
+Description and Instructions
 ======================
 
 If you're a free user on KissAnime, KissCartoon, KissAsian, or so whatever, And you want to download multiple episodes at once, you'd usually have to visit each episode page individually one by one and just to get the download link. Well that's about to change.
 
 This javascript prevents that by just going to the episode list page and just run this script, is that so easy doesn't it?
 
-The detailed steps to use this script are as follows - 
+These are the steps on how to use this script.
 
 ##1. Login to KissAnime/KissCartoon/KissAsian using your account.
 
