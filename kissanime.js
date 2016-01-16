@@ -82,10 +82,40 @@ if (videoQuality === null || videoQuality == '') {
 	videoQuality = '1280x720.mp4';
 }
 console.log('Selected quality: ' + videoQuality);
+var quality_selected;
+
+if(videoQuality == '1920x1080.mp4'){
+	quality_selected = '1080p';
+}
+else if (videoQuality == '1280x720.mp4'){
+	quality_selected = '720p';
+}
+else if (videoQuality == '640x360.mp4'){
+	quality_selected = '360p';
+}
+else if (videoQuality == '320x180.3gp'){
+	quality_selected = '180p';
+}
+else if (videoQuality == '320x136.3gp'){
+	quality_selected = '136p';
+}
+else if (videoQuality == '1280x544.mp4'){
+	quality_selected = '544p';
+}
+else if (videoQuality == '1920x816.mp4'){
+	quality_selected = '816p';
+}
+else if (videoQuality == '640x272.mp4'){
+	quality_selected = '272p';
+}
+else {
+	quality_selected = '';
+}
 
 var i;
 var long_url;
-var absolute_url;
+var response_url;
+var get_url;
 var newLinks = '';
 var title = $(".bigChar").text();
 var c = startEpisode;
@@ -115,30 +145,15 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 			videoQuality = downloadQualityOptions[0].html();
 			long_url = downloadQualityOptions[0].attr('href');
 		}
-		
-		$.ajax({
-    			type: 'POST',
-    			url: long_url,
-    			data: '....',
-    			statusCode: {
-        			302: function() {
-            				alert("302"); // this is never called
-        			},
-        			200: function() {
-            				alert("200");
-        			},
-    				},
-				success: function (data, textstatus, xhrreq) {
-        				absolute_url = xhrreq.getResponseHeader("X-MYAPP-PATH");
-    				},
-    				error: function (data) {
-    				},
-    				complete: function (jqXHR, textstatus, xhrreq) {
-        				absolute_url = xhrreq.getResponseHeader("X-MYAPP-PATH");
-    				},
+		get_url = $.ajac({
+			type: "GET",
+			url: long_url,
 		});
+		response_url = get_url.getResponseHeader('Location');
+		
+		
 		console.log('Completed: ' + c + '/' + (endEpisode - startEpisode + 1));
-		newLinks = newLinks + '<a href="' + absolute_url + '" download="' + title + ' - ' + c + '">Episode ' + c + ' (' + videoQuality + ')</a><br></br>\n';
+		newLinks = newLinks + '<a href="' + response_url + '" download="[KissAnime] '+title+' - '+c+'">Episode ' + c + ' (' + videoQuality + ')</a><br></br>\n';
 		c++
         },
         async:   false, 
