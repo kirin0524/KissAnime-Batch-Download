@@ -165,6 +165,5 @@ newPageText += 'To download them individually, right click the link and choose S
 newPageText += 'NOTE: If watching episodes from this list, open them in a new tab as you will not be able to come back.<br><h1>'+title+' - Download Page</h1>'
 newPageText += newLinks
 
-var newPage = window.open(title, '', 'left=20,top=20,width=1280,height=720,toolbar=0,resizable=1');
-newPage.document.body.innerHTML = newPageText;
-newPage.focus();
+var newPage = window.open('', title, 'width=1280,height=720,toolbar=0,resizable=1');
+newPage.document.body.innerHTML = newPageText
