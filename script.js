@@ -149,7 +149,7 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
         		type: "GET",
         		url: long_url,
         		success : function( data, textStatus, jqXHR){
-              			response_url = jqXHR.getResponseHeader("location"));
+              			response_url = jqXHR.getResponseHeader('location');
 			}
 		});
 		
