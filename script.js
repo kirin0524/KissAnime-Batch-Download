@@ -145,11 +145,14 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 			videoQuality = downloadQualityOptions[0].html();
 			long_url = downloadQualityOptions[0].attr('href');
 		}
-		get_url = $.ajax({
-			type: "GET",
-			url: long_url,
+		$.ajax({
+        		type: "GET",
+        		url: long_url,
+        		success : function( data, textStatus, jqXHR){
+              			response_url = jqXHR.getResponseHeader("location"));
+			}
 		});
-		response_url = get_url.getResponseHeader('Location');
+		
 		
 		console.log('Completed: ' + c + '/' + (endEpisode - startEpisode + 1));
 		newLinks = newLinks + '<a href="' + response_url + '" download="[KissAnime] '+title+' - '+c+'">Episode ' + c + ' (' + videoQuality + ')</a><br></br>\n';
