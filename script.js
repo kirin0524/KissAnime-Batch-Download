@@ -141,22 +141,22 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 			} 
 		}
 		//Needs FIXIN
-		if (qualityFound == false){
-			videoQuality = downloadQualityOptions[0].html();
-			long_url = downloadQualityOptions[0].attr('href');
-		}
-		var httpRequest = new XMLHttpRequest();
-		httpRequest.open("GET", long_url, true);
-		httpRequest.withCredentials = true;
-		httpRequest.onload = (){
-			console.log(httpRequest.responseText);
-		}
-		httpRequest.send();
+		//if (qualityFound == false){
+		//	videoQuality = downloadQualityOptions[0].html();
+		//	long_url = downloadQualityOptions[0].attr('href');
+		//}
+		//var httpRequest = new XMLHttpRequest();
+		//httpRequest.open("GET", long_url, true);
+		//httpRequest.withCredentials = true;
+		//httpRequest.onload = (){
+		//	console.log(httpRequest.responseText);
+		//}
+		//httpRequest.send();
 		//Needs FIXIN
 		
 		
-		console.log('Completed: ' + c + '/' + (endEpisode));
-		newLinks = newLinks + '<a href="' + long_url + '" download="[KissAnime] '+title+' - '+c+'">Episode ' + c-(startepisode-1) + ' (' + videoQuality + ')</a><br></br>\n';
+		console.log('Completed: ' + c + '/' + endEpisode);
+		newLinks = newLinks + '<a href="' + long_url + '" download="[KissAnime] '+title+' - '+c+'">Episode ' + c + ' (' + videoQuality + ')</a><br></br>\n';
 		c++
         },
         async:   false, 
