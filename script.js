@@ -145,13 +145,27 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 			videoQuality = downloadQualityOptions[0].html();
 			long_url = downloadQualityOptions[0].attr('href');
 		}
-		$.ajax({
-        		type: "GET",
-        		url: long_url,
-        		success : function( data, textStatus, jqXHR){
-              			response_url = jqXHR.getResponseHeader('location');
+		var httpRequest = null;
+		function SendRequest(){
+			if(!httpRequest){
+				httpRequest = CreateHTTPRequestObject();
 			}
-		});
+			if(httpRequest){
+				httpRequest.open("GET", long_url, true);
+				httpRequest.onreadystatechange = OnStateChange;
+				httpRequest.send(null);
+			}
+		}
+		function OnStateChange(){
+			if(httpRequest.readyState == 0 || httpRequest.readyState == 4){
+				if(IsRequestSuccessful(httpRequest)){
+					response_url = httpRequest.getResponseHeader("Location");
+				}
+				else{
+					console.log("Operation failed.");
+				}
+			}
+		}
 		
 		
 		console.log('Completed: ' + c + '/' + (endEpisode - startEpisode + 1));
@@ -169,4 +183,4 @@ newPageText += 'NOTE: If watching episodes from this list, open them in a new ta
 newPageText += newLinks
 
 var newPage = window.open('', title, 'width=1280,height=720,toolbar=0,resizable=1');
-newPage.document.body.innerHTML = newPageText
+newPage.document.body.innerHTML = newPageText;
