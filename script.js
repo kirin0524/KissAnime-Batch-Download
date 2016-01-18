@@ -158,19 +158,19 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 		
 		console.log('Completed: ' + i + '/' + (endEpisode-c));
 		newLinks = newLinks + '<a href="' + long_url + '" download="[KissAnime] '+title+' - '+c+'">Episode ' + c + ' (' + videoQuality + ')</a><br></br>\n';
-		instantclick = instantclick + 'window.open("'+long_url+'");';
-		c++
+		instantclick = instantclick + 'window.open(\''+long_url+'\');';
+		c++;
         },
         async:   false, 
 	script:  true
     });
 }
 
-var newPageText = 'Use an addon like DownThemAll! to download the episodes on this page at once. '
-newPageText += 'To download them individually, right click the link and choose Save As. <br>'
-newPageText += 'NOTE: If watching episodes from this list, open them in a new tab as you will not be able to come back.<br><h1>'+title+' - Download Page</h1>'
-newPageText += newLinks
-newPageText += '<button onclick="'+instantclick+'">Download All</button>'
+var newPageText = 'Use an addon like DownThemAll! to download the episodes on this page at once. ';
+newPageText += 'To download them individually, right click the link and choose Save As. <br>';
+newPageText += 'NOTE: If watching episodes from this list, open them in a new tab as you will not be able to come back.<br><h1>'+title+' - Download Page</h1>';
+newPageText += newLinks;
+newPageText += '<button type=\"button\" onclick=\"'+instantclick+'\" value=\"Download All\">Download All</button>';
 
-var newPage = window.open('', title, 'width=480,height=720,toolbar=0,resizable=1');
+var newPage = window.open('', title, 'width=720,height=720,toolbar=0,resizable=1');
 newPage.document.body.innerHTML = newPageText;
