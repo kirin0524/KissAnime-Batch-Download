@@ -75,29 +75,8 @@ do {
 	}
 } while(true); 
 console.log('Ending episode: ' + endEpisode)
-var Qualitylist;
-jQuery.ajax({
-        url: URL + episodeLinks[startEpisode], 
-        success: function(result) {
-        	var $result = eval($(result));
-		var stringStart = result.search("var wra"); 
-		var stringEnd = result.search("document.write"); 
-		var javascriptToExecute = result.substring(stringStart, stringEnd);
-		eval(javascriptToExecute);
-		$("body").append('<div id="episode' + startEpisode + '" style="display: none;"></div>')
-		$('#episode' + startEpisode).append(wra); 
-		
-		var downloadQualityOptions = $('#episode' + startEpisode + ' a').map(function(startEpisode,el) { return $(el); });
-		var j; 
-		for (j = 0; j < downloadQualityOptions.length; j++) {
-			Qualitylist += downloadQualityOptions[j].html() + ' ';
-			} 
-		},
-	async:   false, 
-	script:  true
-});
 
-var videoQuality = prompt(Qualitylist+"\nEnter the video quality that you want to download. Leave blank for default (1280x720.mp4)"); 
+var videoQuality = prompt("Enter the video quality that you want to download. Leave blank for default (1280x720.mp4)"); 
 //set preferred quality (will choose the best available if not an option)
 if (videoQuality === null || videoQuality == '') {
 	videoQuality = '1280x720.mp4';
