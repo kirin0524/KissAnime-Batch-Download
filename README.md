@@ -4,7 +4,7 @@ Get Script code
 $.getScript("https://rawgit.com/Guthix1991/KissAnime-Batch-Download/master/script.js")
 
 ##(If popup blocker shows up, please allow the website and try again)
-##(Don't forget to allow "load unsafe" scripts)
+##(Don't forget to disable protections/allow load unsafe scripts)
 
 Description and Instructions
 ======================
