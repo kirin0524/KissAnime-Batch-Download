@@ -157,7 +157,7 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 		//Needs FIXIN
 		
 		
-		console.log('Completed: ' + (count-1) + '/' + (endEpisode-startEpisode));
+		console.log('Completed: ' + count + '/' + ((endEpisode-startEpisode)+1));
 		newLinks = newLinks + '<a href="' + long_url + '" download="[KissAnime] '+title+' - '+c+'">Episode ' + c + ' (' + videoQuality + ')</a><br></br>\n';
 		instantclick = instantclick + 'window.open(\''+long_url+'\');';
 		c++;
@@ -174,5 +174,5 @@ newPageText += 'NOTE: If watching episodes from this list, open them in a new ta
 newPageText += newLinks;
 newPageText += '<button type=\"button\" onclick=\"'+instantclick+'\" value=\"Download All\">Download All</button>';
 
-var newPage = window.open('', title, 'width=720,height=720,toolbar=0,resizable=1');
+var newPage = window.open('', title, 'width=720,height=720,toolbar=0,resizable=1,scrollbar=1');
 newPage.document.body.innerHTML = newPageText;
