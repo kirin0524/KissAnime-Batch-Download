@@ -75,8 +75,29 @@ do {
 	}
 } while(true); 
 console.log('Ending episode: ' + endEpisode)
+var Qualitylist;
+jQuery.ajax({
+        url: URL + episodeLinks[startEpisode], 
+        success: function(result) {
+        	var $result = eval($(result));
+		var stringStart = result.search("var wra"); 
+		var stringEnd = result.search("document.write"); 
+		var javascriptToExecute = result.substring(stringStart, stringEnd);
+		eval(javascriptToExecute);
+		$("body").append('<div id="episode' + startEpisode + '" style="display: none;"></div>')
+		$('#episode' + startEpisode).append(wra); 
+		
+		var downloadQualityOptions = $('#episode' + startEpisode + ' a').map(function(startEpisode,el) { return $(el); });
+		var j; 
+		for (j = 0; j < downloadQualityOptions.length; j++) {
+			Qualitylist += downloadQualityOptions[j].html() + ' ';
+			} 
+		},
+	async:   false, 
+	script:  true
+});
 
-var videoQuality = prompt("Enter the video quality that you want to download. Leave blank for default (1280x720.mp4)"); 
+var videoQuality = prompt(Qualitylist+"\nEnter the video quality that you want to download. Leave blank for default (1280x720.mp4)"); 
 //set preferred quality (will choose the best available if not an option)
 if (videoQuality === null || videoQuality == '') {
 	videoQuality = '1280x720.mp4';
@@ -140,36 +161,23 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 				qualityFound = true;
 			} 
 		}
-		//if preferred quality is not found, defaults to highest quality
+		//Needs FIXIN
 		if (qualityFound == false){
 			videoQuality = downloadQualityOptions[0].html();
 			long_url = downloadQualityOptions[0].attr('href');
 		}
-		var httpRequest = null;
-		function SendRequest(){
-			if(!httpRequest){
-				httpRequest = CreateHTTPRequestObject();
-			}
-			if(httpRequest){
-				httpRequest.open("GET", long_url, true);
-				httpRequest.onreadystatechange = OnStateChange;
-				httpRequest.send(null);
-			}
+		var httpRequest = new XMLHttpRequest();
+		httpRequest.open("GET", long_url, true);
+		httpRequest.withCredentials = true;
+		httpRequest.onload = (){
+			console.log(httpRequest.responseText);
 		}
-		function OnStateChange(){
-			if(httpRequest.readyState == 0 || httpRequest.readyState == 4){
-				if(IsRequestSuccessful(httpRequest)){
-					response_url = httpRequest.getResponseHeader("Location");
-				}
-				else{
-					console.log("Operation failed.");
-				}
-			}
-		}
+		httpRequest.send();
+		//Needs FIXIN
 		
 		
 		console.log('Completed: ' + c + '/' + (endEpisode));
-		newLinks = newLinks + '<a href="' + response_url + '" download="[KissAnime] '+title+' - '+c+'">Episode ' + c-(startepisode-1) + ' (' + videoQuality + ')</a><br></br>\n';
+		newLinks = newLinks + '<a href="' + long_url + '" download="[KissAnime] '+title+' - '+c+'">Episode ' + c-(startepisode-1) + ' (' + videoQuality + ')</a><br></br>\n';
 		c++
         },
         async:   false, 
