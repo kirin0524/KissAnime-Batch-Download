@@ -120,6 +120,7 @@ var newLinks = '';
 var instantclick = '';
 var title = $(".bigChar").text();
 var c = startEpisode;
+var count = 1;
 for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEpisode); i--) {
 	jQuery.ajax({
         url: URL + episodeLinks[i], 
@@ -156,10 +157,11 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 		//Needs FIXIN
 		
 		
-		console.log('Completed: ' + i + '/' + (endEpisode-c));
+		console.log('Completed: ' + count + '/' + (endEpisode-startEpisode));
 		newLinks = newLinks + '<a href="' + long_url + '" download="[KissAnime] '+title+' - '+c+'">Episode ' + c + ' (' + videoQuality + ')</a><br></br>\n';
 		instantclick = instantclick + 'window.open(\''+long_url+'\');';
 		c++;
+		count++;
         },
         async:   false, 
 	script:  true
