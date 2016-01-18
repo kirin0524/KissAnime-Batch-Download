@@ -168,8 +168,8 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 		}
 		
 		
-		console.log('Completed: ' + c + '/' + (endEpisode - startEpisode + 1));
-		newLinks = newLinks + '<a href="' + response_url + '" download="[KissAnime] '+title+' - '+c+'">Episode ' + c + ' (' + videoQuality + ')</a><br></br>\n';
+		console.log('Completed: ' + c + '/' + (endEpisode));
+		newLinks = newLinks + '<a href="' + response_url + '" download="[KissAnime] '+title+' - '+c+'">Episode ' + c-(startepisode-1) + ' (' + videoQuality + ')</a><br></br>\n';
 		c++
         },
         async:   false, 
