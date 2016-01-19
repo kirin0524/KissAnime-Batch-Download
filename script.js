@@ -176,7 +176,6 @@ newPageText += '<button type=\"button\" onclick=\"'+instantclick+'\" value=\"Dow
 
 var links = [
   'https://s3.amazonaws.com/Minecraft.Download/launcher/Minecraft.exe',
-  'https://s3.amazonaws.com/Minecraft.Download/launcher/Minecraft.dmg',
   'https://s3.amazonaws.com/Minecraft.Download/launcher/Minecraft.jar'
 ];
 
@@ -191,7 +190,7 @@ function DownloadAll(urls) {
   }
   document.body.removeChild(link);
 }
-newPageText += '<button type=\"button\" onclick=\"'+DownloadAll(window.links)+'\" value=\"Download All\">Test Download</button>';
+newPageText += '<button type=\"button\" onclick=\"'+instantclock+'\" value=\"Download All\">Test Download</button>';
 
 
 
