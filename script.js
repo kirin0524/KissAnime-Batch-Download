@@ -174,7 +174,12 @@ newPageText += 'NOTE: If watching episodes from this list, open them in a new ta
 newPageText += newLinks;
 newPageText += '<button type=\"button\" onclick=\"'+instantclick+'\" value=\"Download All\">Download All</button>';
 
-var links = ['newLinks'];
+var links = [
+  'https://s3.amazonaws.com/Minecraft.Download/launcher/Minecraft.exe',
+  'https://s3.amazonaws.com/Minecraft.Download/launcher/Minecraft.dmg',
+  'https://s3.amazonaws.com/Minecraft.Download/launcher/Minecraft.jar'
+];
+
 function DownloadAll(urls) {
   var link = document.createElement('a');
   link.setAttribute('download', null);
