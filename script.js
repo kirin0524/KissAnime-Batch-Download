@@ -186,7 +186,7 @@ function downloadAll(urls) {
   }
   document.body.removeChild(link);
 }
-newPageText += '<button type=\"button\" onclick=\"'+DownloadAll(window.links)+'\" value=\"Download All test\">Download All</button>';
+newPageText += '<button type=\"button\" onclick=\"'+DownloadAll(window.links)+'\" value=\"Download All\">Test Download</button>';
 
 
 
