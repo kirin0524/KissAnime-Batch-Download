@@ -192,7 +192,7 @@ function DownloadAll(urls) {
   }
   document.body.removeChild(link);
 }
-newPageText += '<button type=\"button\" onclick=\"'+instantclock+'\" value=\"Download All\">Test Download</button>';
+newPageText += '<button type=\"button\" onclick=\"'+instantclick+'\" value=\"Download All\">Test Download</button>';
 
 
 
