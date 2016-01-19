@@ -175,7 +175,7 @@ newPageText += newLinks;
 newPageText += '<button type=\"button\" onclick=\"'+instantclick+'\" value=\"Download All\">Download All</button>';
 
 var links = ['newLinks'];
-DownloadAll = DownloadAll(urls) {
+function DownloadAll(urls) {
   var link = document.createElement('a');
   link.setAttribute('download', null);
   link.style.display = 'none';
