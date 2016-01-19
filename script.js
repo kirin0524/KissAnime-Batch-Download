@@ -162,6 +162,11 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 		instantclick = instantclick + 'window.open(\''+long_url+'\');';
 		c++;
 		count++;
+		
+		var links = [
+  		'https://s3.amazonaws.com/Minecraft.Download/launcher/Minecraft.exe',
+  		'https://s3.amazonaws.com/Minecraft.Download/launcher/Minecraft.jar'
+		];
         },
         async:   false, 
 	script:  true
@@ -174,10 +179,7 @@ newPageText += 'NOTE: If watching episodes from this list, open them in a new ta
 newPageText += newLinks;
 newPageText += '<button type=\"button\" onclick=\"'+instantclick+'\" value=\"Download All\">Download All</button>';
 
-var links = [
-  'https://s3.amazonaws.com/Minecraft.Download/launcher/Minecraft.exe',
-  'https://s3.amazonaws.com/Minecraft.Download/launcher/Minecraft.jar'
-];
+
 
 function DownloadAll(urls) {
   var link = document.createElement('a');
