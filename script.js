@@ -162,31 +162,6 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 		instantclick = instantclick + 'window.open(\''+long_url+'\');';
 		c++;
 		count++;
-		
-		$('#download').click(function() {
-		 download('+ long_url +');
-		 });
-		
-		var download = function() {
-		for(var i=0; i<arguments.length; i++) {
-        	 var iframe = $('<iframe style="visibility: collapse;"></iframe>');
-        	 $('body').append(iframe);
-        	 var content = iframe[0].contentDocument;
-	         var form = '<form action="' + arguments[i] + '" method="GET"></form>';
-		   content.write(form);
-		   $('form', content).submit();
-		  setTimeout((function(iframe) {
-        		   return function() { 
-        		     iframe.remove(); 
-        		   }
-		   })(iframe), 2000);
-		   }
-		     }
-		
-		
-		
-		
-		
         },
         async:   false, 
 	script:  true
@@ -198,6 +173,6 @@ newPageText += 'To download them individually, right click the link and choose S
 newPageText += 'NOTE: If watching episodes from this list, open them in a new tab as you will not be able to come back.<br><h1>'+title+' - Download Page</h1>';
 newPageText += newLinks;
 newPageText += '<button type=\"button\" onclick=\"'+instantclick+'\" value=\"Download All\">Download All</button>';
-
+newPageText += '<button type=\"button\" onclick=\"'+instantclick+'\" value=\"Download All\">Download All</button>';
 var newPage = window.open('', title, 'width=720,height=720,toolbar=0,resizable=1,scrollbar=1');
 newPage.document.body.innerHTML = newPageText;
