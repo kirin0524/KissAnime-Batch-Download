@@ -173,6 +173,22 @@ newPageText += 'To download them individually, right click the link and choose S
 newPageText += 'NOTE: If watching episodes from this list, open them in a new tab as you will not be able to come back.<br><h1>'+title+' - Download Page</h1>';
 newPageText += newLinks;
 newPageText += '<button type=\"button\" onclick=\"'+instantclick+'\" value=\"Download All\">Download All</button>';
-newPageText += '<button type=\"button\" onclick=\"'+instantclick+'\" value=\"Download All\">Download All</button>';
+
+var links = ['newLinks'];
+function downloadAll(urls) {
+  var link = document.createElement('a');
+  link.setAttribute('download', null);
+  link.style.display = 'none';
+  document.body.appendChild(link);
+  for (var i = 0; i < urls.length; i++) {
+    link.setAttribute('href', urls[i]);
+    link.click();
+  }
+  document.body.removeChild(link);
+}
+newPageText += '<button type=\"button\" onclick=\"'+DownloadAll(window.links)+'\" value=\"Download All test\">Download All</button>';
+
+
+
 var newPage = window.open('', title, 'width=720,height=720,toolbar=0,resizable=1,scrollbar=1');
 newPage.document.body.innerHTML = newPageText;
