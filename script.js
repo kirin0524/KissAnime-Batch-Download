@@ -159,9 +159,34 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 		
 		console.log('Completed: ' + count + '/' + ((endEpisode-startEpisode)+1));
 		newLinks = newLinks + '<a href="' + long_url + '" download="[KissAnime] '+title+' - '+c+'">Episode ' + c + ' (' + videoQuality + ')</a><br></br>\n';
-		//instantclick = instantclick + 'window.open(\''+long_url+'\');';
+		instantclick = instantclick + 'window.open(\''+long_url+'\');';
 		c++;
 		count++;
+		
+		$('#download').click(function() {
+		 download('+ long_url +');
+		 });
+		
+		var download = function() {
+		for(var i=0; i<arguments.length; i++) {
+        	 var iframe = $('<iframe style="visibility: collapse;"></iframe>');
+        	 $('body').append(iframe);
+        	 var content = iframe[0].contentDocument;
+	         var form = '<form action="' + arguments[i] + '" method="GET"></form>';
+		   content.write(form);
+		   $('form', content).submit();
+		  setTimeout((function(iframe) {
+        		   return function() { 
+        		     iframe.remove(); 
+        		   }
+		   })(iframe), 2000);
+		   }
+		     }
+		
+		
+		
+		
+		
         },
         async:   false, 
 	script:  true
