@@ -159,7 +159,7 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 		
 		console.log('Completed: ' + count + '/' + ((endEpisode-startEpisode)+1));
 		newLinks = newLinks + '<a href="' + long_url + '" download="[KissAnime] '+title+' - '+c+'">Episode ' + c + ' (' + videoQuality + ')</a><br></br>\n';
-		instantclick = instantclick + 'window.download(\''+long_url+'\');';
+		instantclick = instantclick + 'window.open(\''+long_url+'\');';
 		c++;
 		count++;
         },
