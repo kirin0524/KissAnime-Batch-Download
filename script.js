@@ -174,5 +174,5 @@ newPageText += 'NOTE: If watching episodes from this list, open them in a new ta
 newPageText += newLinks;
 newPageText += '<button type=\"button\" onclick=\"'+instantclick+'\" value=\"Download All\">Download All</button>';
 
-var newPage = window.open('', title, 'width=720,height=720,toolbar=0,resizable=1,scrollbar=1');
+var newPage = window.open('', title, 'width=720,height=720,toolbar=0,resizable=1,scrollbars=1');
 newPage.document.body.innerHTML = newPageText;
